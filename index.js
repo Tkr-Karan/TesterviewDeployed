@@ -34,6 +34,11 @@ app.use("/api/published", PublishedRoutes);
 app.use("/api/analytics", AnalyticRoutes);
 app.use('/api/survey', SurveyRoutes)
 
+// adding wild card
+app.get("*", function (req, res) {
+  res.sendFile(path.resolve(__dirname, "./public/index.html"));
+});
+
 app.listen(PORT, () => {
   console.log(`Your server is working fine on ${PORT}, keep working`);
 });
